@@ -1,4 +1,4 @@
-let arr = [1, 2, 3, 4, 5, 6, 7]
+let arr = [1, 2, 3, 4, 5]
 
 function reverseArr(arr, low, high) {
     let i = low;
@@ -13,11 +13,12 @@ function reverseArr(arr, low, high) {
 }
 
 function rotateArrayByK(arr, k) {
-    k = ((k % arr.length) + arr.length) % arr.length
+    k = k % arr.length
+    let n = arr.length
 
-    reverseArr(arr, 0, k-1)
-    reverseArr(arr, k, arr.length-1)
-    reverseArr(arr, 0, arr.length - 1)
+    reverseArr(arr, 0, n-k-1)
+    reverseArr(arr, k+1, n-1)
+    reverseArr(arr, 0, n-1)
 
     return arr
 }
